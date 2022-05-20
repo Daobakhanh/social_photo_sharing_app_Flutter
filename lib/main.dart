@@ -172,7 +172,7 @@ class MyHomePage extends StatelessWidget {
                   bottom: 20,
                   child: Container(
                       child: IconButton(
-                        icon: const Icon(Icons.play_arrow),
+                        icon: const Icon(Icons.home),
                         color: Colors.white,
                         onPressed: () {},
                       ),
