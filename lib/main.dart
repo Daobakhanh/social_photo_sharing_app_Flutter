@@ -49,9 +49,9 @@ class MyHomePage extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        // top: true,
+        top: true,
         child: Container(
-          color: Colors.grey,
+          color: Colors.white,
           child: Stack(
             // alignment: Alignment.center,
             children: [
