@@ -51,7 +51,7 @@ class MyHomePage extends StatelessWidget {
       body: SafeArea(
         // top: true,
         child: Container(
-          color: Colors.white,
+          color: Colors.grey,
           child: Stack(
             // alignment: Alignment.center,
             children: [
