@@ -56,10 +56,10 @@ class MyHomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('All String'),
+        title: const Text('All Screen'),
       ),
       body: Container(
-        color: Colors.white,
+        color: Colors.black,
         child: ListView.builder(
             itemCount: 4,
             itemBuilder: (context, index) {
@@ -84,12 +84,12 @@ class _CardScreenState extends State<CardScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
-        margin: const EdgeInsets.only(bottom: 20),
-        height: 20,
+        margin: const EdgeInsets.only(bottom: 10),
+        height: 60,
         width: 100,
         child: Text(widget.title),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14), color: Colors.blue),
+            borderRadius: BorderRadius.circular(14), color: Colors.blue[900]),
       ),
     );
   }
