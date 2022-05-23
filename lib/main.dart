@@ -4,6 +4,13 @@ void main() {
   runApp(const MyApp());
 }
 
+const listScreen = <String>[
+  'Home Page',
+  'Commom Widgets Page',
+  'Sign In Page',
+  'Onboarding Page'
+];
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -53,16 +60,37 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Container(
         color: Colors.white,
+        child: ListView.builder(
+            itemCount: 4,
+            itemBuilder: (context, index) {
+              return const CardScreen(title: 'khanh');
+            }),
       ),
     );
   }
 }
 
-class CardScreen extends StatelessWidget {
-  const CardScreen({Key? key}) : super(key: key);
+class CardScreen extends StatefulWidget {
+  const CardScreen({Key? key, required String title}) : super(key: key);
 
+  final String title = '';
+  @override
+  State<CardScreen> createState() => _CardScreenState();
+}
+
+class _CardScreenState extends State<CardScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 20),
+        color: Colors.blue,
+        height: 20,
+        width: 100,
+        child: Text(widget.title),
+        decoration: Box,
+      ),
+    );
   }
 }
