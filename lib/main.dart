@@ -85,11 +85,11 @@ class _CardScreenState extends State<CardScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
         margin: const EdgeInsets.only(bottom: 20),
-        color: Colors.blue,
         height: 20,
         width: 100,
         child: Text(widget.title),
-        decoration: Box,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14), color: Colors.blue),
       ),
     );
   }
