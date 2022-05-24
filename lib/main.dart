@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_network_newsfeed/modules/homePage/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -63,7 +64,7 @@ class MyHomePage extends StatelessWidget {
         child: ListView.builder(
             itemCount: 4,
             itemBuilder: (context, index) {
-              return const CardScreen(title: 'khanh');
+              return CardScreen(title: listScreen[index]);
             }),
       ),
     );
@@ -71,9 +72,9 @@ class MyHomePage extends StatelessWidget {
 }
 
 class CardScreen extends StatefulWidget {
-  const CardScreen({Key? key, required String title}) : super(key: key);
+  const CardScreen({Key? key, required this.title}) : super(key: key);
 
-  final String title = '';
+  final String title;
   @override
   State<CardScreen> createState() => _CardScreenState();
 }
@@ -83,13 +84,25 @@ class _CardScreenState extends State<CardScreen> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 10),
-        height: 60,
-        width: 100,
-        child: Text(widget.title),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14), color: Colors.blue[900]),
+      child: GestureDetector(
+        onTap: () {
+          // ignore: avoid_print
+          print('hello');
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HomePage()));
+        },
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 20),
+          height: 60,
+          width: 100,
+          alignment: Alignment.center,
+          child: Text(
+            widget.title,
+            style: const TextStyle(color: Colors.white),
+          ),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14), color: Colors.blue[900]),
+        ),
       ),
     );
   }
