@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class MessagePage extends StatefulWidget {
+  const MessagePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<MessagePage> createState() => _MessagePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MessagePageState extends State<MessagePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Page'),
+        title: const Text('Message'),
         leading: InkWell(
           onTap: () {
             Navigator.pop(context);

@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:social_network_newsfeed/modules/homePage/pages/home_page.dart';
+import 'modules/dashboard/pages/dashboard_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
-const listScreen = <String>[
-  'Home Page',
-  'Commom Widgets Page',
-  'Sign In Page',
-  'Onboarding Page'
-];
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -22,88 +15,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final paddingSafeAreaSize = MediaQuery.of(context).padding.top +
-        MediaQuery.of(context).padding.bottom;
-    const double marginCard = 10;
-    //define height
-    final heightSmallCardCustom = (size.height - paddingSafeAreaSize) / 5;
-    final heightSmallCardDefault =
-        (size.height - heightSmallCardCustom - paddingSafeAreaSize) / 3;
-
-    //define width
-    final widthQuarterOfScreen = (size.width - marginCard) / 4;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('All Screen'),
-      ),
-      body: Container(
-        color: Colors.black,
-        child: ListView.builder(
-            itemCount: 4,
-            itemBuilder: (context, index) {
-              return CardScreen(title: listScreen[index]);
-            }),
-      ),
-    );
-  }
-}
-
-class CardScreen extends StatefulWidget {
-  const CardScreen({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-  @override
-  State<CardScreen> createState() => _CardScreenState();
-}
-
-class _CardScreenState extends State<CardScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: GestureDetector(
-        onTap: () {
-          // ignore: avoid_print
-          print('hello');
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomePage()));
-        },
-        child: Container(
-          margin: const EdgeInsets.only(bottom: 20),
-          height: 60,
-          width: 100,
-          alignment: Alignment.center,
-          child: Text(
-            widget.title,
-            style: const TextStyle(color: Colors.white),
-          ),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(14), color: Colors.blue[900]),
-        ),
-      ),
+      home: const DashBoardPage(),
     );
   }
 }
