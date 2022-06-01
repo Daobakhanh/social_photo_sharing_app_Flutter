@@ -48,7 +48,8 @@ class _CommonWidgetPageState extends State<CommonWidgetPage> {
             children: [
               Container(
                   margin: const EdgeInsets.all(20),
-                  child: Avatar(picture: personInfor["picture"]["large"])),
+                  child: AvaterWithStatus(
+                      picture: personInfor["picture"]["large"])),
               Container(
                 margin: const EdgeInsets.all(20),
                 color: AppColors.activeStateGray,
