@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_network_newsfeed/common/list_screen.dart';
 
 import '../../common_widget/pages/common_widget_page.dart';
-import '../../messages/message_page.dart';
+import '../../messages/pages/message_page.dart';
 import '../widgets/card_screen.dart';
 
 class DashBoardPage extends StatelessWidget {

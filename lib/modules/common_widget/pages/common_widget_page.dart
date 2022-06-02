@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:social_network_newsfeed/modules/common_widget/widgets/common_widgets.dart';
+import 'package:social_network_newsfeed/modules/common_widget/widgets/avatar/common_widgets.dart';
+import 'package:social_network_newsfeed/modules/common_widget/widgets/messages/messages_widget.dart';
 import 'package:social_network_newsfeed/themes/app_colors.dart';
 
 Map personInfor = {
@@ -10,6 +11,13 @@ Map personInfor = {
   "registered": "2002-05-21T10:59:49.966Z",
   "phone": "011-962-7516",
   "status": "offline",
+  "messages": {
+    "listOfMessage": [
+      {"message": "hello I'm khanh", "time": "2022-05-21T10:58:46.966Z"},
+      {"message": "Back khoa ha noi", "time": "2022-05-21T10:59:49.966Z"},
+    ],
+    "numOfMessageUnSeen": 1,
+  },
   "picture": {
     "large": "https://randomuser.me/api/portraits/men/75.jpg",
     "medium": "https://randomuser.me/api/portraits/med/men/75.jpg",
@@ -43,19 +51,33 @@ class _CommonWidgetPageState extends State<CommonWidgetPage> {
       body: Container(
           color: Colors.black,
           height: maxHeightScreen,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Wrap(
             children: [
               Container(
+                  height: 100,
+                  width: 100,
                   margin: const EdgeInsets.all(20),
-                  child: AvaterWithStatus(
+                  child: AvatarWithActiveStatus(
                       picture: personInfor["picture"]["large"])),
               Container(
                 margin: const EdgeInsets.all(20),
-                color: AppColors.activeStateGray,
-                height: 30,
-                width: 30,
-              )
+                child: AvatarWithNameAndActiveStatus(
+                  picture: personInfor["picture"]["large"],
+                  nameOfUser: personInfor["name"],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.all(20),
+                child: AvatarWithMessageCard(
+                  picture: personInfor["picture"]["large"],
+                  nameOfUser: personInfor["name"],
+                  numOfMessageUnseen: personInfor["messages"]
+                      ["numOfMessageUnSeen"],
+                  lastMessage: personInfor["messages"]["listOfMessage"][0]
+                      ["message"],
+                  timeOfLastMessage: "04:37",
+                ),
+              ),
             ],
           )),
     );

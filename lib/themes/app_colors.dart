@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color activeStateBlue = Color(0xff007AFF);
+  static const Color activeStateGreen = Color(0xff7ED321);
+
   static const Color activeStateOrange = Color(0xffFF9500);
   static const Color activeStatePink = Color(0xffF78361);
   static const Color activeStatePurple = Color(0xff5856D6);
@@ -14,4 +16,8 @@ class AppColors {
   static const Color light = Color(0xffFFFFFF);
   static const Color keyboardGray = Color(0xffD2D5DB);
   static const Color keyboardLightGray = Color(0xffEFEFF4);
+}
+
+class AppTextColors {
+  static const Color textGrey = Color(0xff4E586E);
 }
