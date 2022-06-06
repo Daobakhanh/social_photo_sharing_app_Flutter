@@ -1,18 +1,18 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:social_network_newsfeed/common/data_type/gender.dart';
 import 'package:social_network_newsfeed/common/data_type/user_status.dart';
-import 'package:social_network_newsfeed/models/picture.dart';
+import 'package:social_network_newsfeed/models/other/picture.dart';
 
 /// This allows the `User` class to access private members in
 /// the generated file. The value for this is *.g.dart, where
 /// the star denotes the source file name.
-part 'user.g.dart';
+part 'chat.g.dart';
 
 /// An annotation for the code generator to know that this class needs the
 /// JSON serialization logic to be generated.
 @JsonSerializable()
-class User {
-  User(this.name, this.email, this.gender, this.dob, this.phone,
+class Chat {
+  Chat(this.name, this.email, this.gender, this.dob, this.phone,
       this.registered, this.status, this.picture);
 
   final Gender gender;
@@ -27,7 +27,7 @@ class User {
   /// A necessary factory constructor for creating a new User instance
   /// from a map. Pass the map to the generated `_$UserFromJson()` constructor.
   /// The constructor is named after the source class, in this case, User.
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  factory Chat.fromJson(Map<String, dynamic> json) => _$ChatFromJson(json);
 
   /// `toJson` is the convention for a class to declare support for serialization
   /// to JSON. The implementation simply calls the private, generated
@@ -36,8 +36,8 @@ class User {
 }
 
 @JsonSerializable()
-class Users {
-  Users(this.results);
-  final List<User> results;
-  factory Users.fromJson(Map<String, dynamic> json) => _$UsersFromJson(json);
+class Chats {
+  Chats(this.results);
+  final List<Chat> results;
+  factory Chats.fromJson(Map<String, dynamic> json) => _$ChatsFromJson(json);
 }

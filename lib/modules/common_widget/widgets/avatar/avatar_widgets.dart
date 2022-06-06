@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:social_network_newsfeed/common/data_type/user_status.dart';
-import 'package:social_network_newsfeed/models/user/user.dart';
 import 'package:social_network_newsfeed/themes/app_colors.dart';
 import 'package:social_network_newsfeed/themes/app_styles.dart';
 

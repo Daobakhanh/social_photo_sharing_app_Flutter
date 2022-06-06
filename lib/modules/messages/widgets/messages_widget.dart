@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:social_network_newsfeed/models/user/user.dart';
+import 'package:social_network_newsfeed/models/users/user.dart';
 import 'package:social_network_newsfeed/modules/common_widget/widgets/avatar/avatar_widgets.dart';
 import 'package:social_network_newsfeed/themes/app_colors.dart';
 import 'package:social_network_newsfeed/themes/app_styles.dart';
@@ -34,6 +34,23 @@ class _HorizontalListActiveUserState extends State<HorizontalListActiveUser> {
         },
       ),
     );
+  }
+}
+
+//vertial list user with message
+class VerticalListUserWithLastMessage extends StatefulWidget {
+  const VerticalListUserWithLastMessage({Key? key}) : super(key: key);
+
+  @override
+  State<VerticalListUserWithLastMessage> createState() =>
+      _VerticalListUserWithLastMessageState();
+}
+
+class _VerticalListUserWithLastMessageState
+    extends State<VerticalListUserWithLastMessage> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
 

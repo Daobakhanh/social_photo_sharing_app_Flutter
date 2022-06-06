@@ -1,8 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:social_network_newsfeed/models/user/user.dart';
-import 'package:social_network_newsfeed/modules/common_widget/widgets/avatar/avatar_widgets.dart';
+import 'package:social_network_newsfeed/models/users/user.dart';
 import 'package:social_network_newsfeed/modules/messages/widgets/messages_widget.dart';
 import 'package:social_network_newsfeed/themes/app_colors.dart';
 import 'package:social_network_newsfeed/themes/app_styles.dart';
