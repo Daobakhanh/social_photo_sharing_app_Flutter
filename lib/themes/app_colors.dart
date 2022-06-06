@@ -12,6 +12,8 @@ class AppColors {
   static const Color activeStateGray = Color(0xff8E8E93);
   static const Color adding = Color(0xff4CD964);
   static const Color destructive = Color(0xffFF3B30);
+  static const Color black = Color(0xff000000);
+
   static const Color dark = Color(0xff1D1D26);
   static const Color light = Color(0xffFFFFFF);
   static const Color keyboardGray = Color(0xffD2D5DB);

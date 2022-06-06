@@ -7,26 +7,26 @@ part of 'user.dart';
 // **************************************************************************
 
 User _$UserFromJson(Map<String, dynamic> json) => User(
-      json['name'] as String?,
-      json['email'] as String?,
-      $enumDecodeNullable(_$GenderEnumMap, json['gender']),
-      json['dob'] == null ? null : DateTime.parse(json['dob'] as String),
-      json['phone'] as String?,
-      json['registered'] == null
-          ? null
-          : DateTime.parse(json['registered'] as String),
-      $enumDecodeNullable(_$UserStatusEnumMap, json['status']),
+      json['name'] as String,
+      json['email'] as String,
+      $enumDecode(_$GenderEnumMap, json['gender']),
+      DateTime.parse(json['dob'] as String),
+      json['phone'] as String,
+      DateTime.parse(json['registered'] as String),
+      $enumDecode(_$UserStatusEnumMap, json['status']),
+      Picture.fromJson(json['picture'] as Map<String, dynamic>),
     );
 
-// Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
-//       'gender': _$GenderEnumMap[instance.gender],
-//       'name': instance.name,
-//       'email': instance.email,
-//       'dob': instance.dob?.toIso8601String(),
-//       'registered': instance.registered?.toIso8601String(),
-//       'phone': instance.phone,
-//       'status': _$UserStatusEnumMap[instance.status],
-//     };
+Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
+      'gender': _$GenderEnumMap[instance.gender],
+      'name': instance.name,
+      'email': instance.email,
+      'dob': instance.dob.toIso8601String(),
+      'registered': instance.registered.toIso8601String(),
+      'phone': instance.phone,
+      'status': _$UserStatusEnumMap[instance.status],
+      'picture': instance.picture,
+    };
 
 const _$GenderEnumMap = {
   Gender.male: 'male',
@@ -40,12 +40,12 @@ const _$UserStatusEnumMap = {
   UserStatus.private: 'private',
 };
 
-Results _$ResultsFromJson(Map<String, dynamic> json) => Results(
+Users _$UsersFromJson(Map<String, dynamic> json) => Users(
       (json['results'] as List<dynamic>)
           .map((e) => User.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-// Map<String, dynamic> _$ResultsToJson(Results instance) => <String, dynamic>{
-//       'results': instance.results,
-//     };
+Map<String, dynamic> _$UsersToJson(Users instance) => <String, dynamic>{
+      'results': instance.results,
+    };

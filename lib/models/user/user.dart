@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:social_network_newsfeed/common/data_type/gender.dart';
 import 'package:social_network_newsfeed/common/data_type/user_status.dart';
+import 'package:social_network_newsfeed/models/picture.dart';
 
 /// This allows the `User` class to access private members in
 /// the generated file. The value for this is *.g.dart, where
@@ -12,15 +13,16 @@ part 'user.g.dart';
 @JsonSerializable()
 class User {
   User(this.name, this.email, this.gender, this.dob, this.phone,
-      this.registered, this.status);
+      this.registered, this.status, this.picture);
 
-  final Gender? gender;
-  final String? name;
-  final String? email;
-  final DateTime? dob;
-  final DateTime? registered;
-  final String? phone;
-  final UserStatus? status;
+  final Gender gender;
+  final String name;
+  final String email;
+  final DateTime dob;
+  final DateTime registered;
+  final String phone;
+  final UserStatus status;
+  final Picture picture;
 
   /// A necessary factory constructor for creating a new User instance
   /// from a map. Pass the map to the generated `_$UserFromJson()` constructor.
@@ -34,9 +36,8 @@ class User {
 }
 
 @JsonSerializable()
-class Results {
-  Results(this.results);
+class Users {
+  Users(this.results);
   final List<User> results;
-  factory Results.fromJson(Map<String, dynamic> json) =>
-      _$ResultsFromJson(json);
+  factory Users.fromJson(Map<String, dynamic> json) => _$UsersFromJson(json);
 }

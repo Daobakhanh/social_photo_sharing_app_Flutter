@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_network_newsfeed/modules/common_widget/widgets/avatar/common_widgets.dart';
-import 'package:social_network_newsfeed/modules/common_widget/widgets/messages/messages_widget.dart';
+import 'package:social_network_newsfeed/modules/messages/widgets/messages_widget.dart';
+// import 'package:social_network_newsfeed/modules/common_widget/widgets/messages/messages_widget.dart';
 
 Map personInfor = {
   "gender": "male",

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:social_network_newsfeed/common/data_type/user_status.dart';
+import 'package:social_network_newsfeed/models/user/user.dart';
 import 'package:social_network_newsfeed/themes/app_colors.dart';
 import 'package:social_network_newsfeed/themes/app_styles.dart';
 
@@ -6,10 +8,14 @@ import 'package:social_network_newsfeed/themes/app_styles.dart';
 
 class AvatarWithNameAndActiveStatus extends StatefulWidget {
   const AvatarWithNameAndActiveStatus(
-      {Key? key, required this.picture, required this.nameOfUser})
+      {Key? key,
+      required this.picture,
+      required this.nameOfUser,
+      this.userStatus})
       : super(key: key);
   final String picture;
   final String nameOfUser;
+  final UserStatus? userStatus;
   @override
   State<AvatarWithNameAndActiveStatus> createState() =>
       _AvatarWithNameAndActiveStatusState();
@@ -26,7 +32,9 @@ class _AvatarWithNameAndActiveStatusState
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          AvatarWithActiveStatus(picture: widget.picture),
+          widget.userStatus == UserStatus.online
+              ? AvatarWithActiveStatus(picture: widget.picture)
+              : Avatar(picture: widget.picture),
           Text(
             widget.nameOfUser,
             style:

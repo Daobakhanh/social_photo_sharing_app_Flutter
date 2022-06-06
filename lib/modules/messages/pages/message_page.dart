@@ -2,7 +2,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:social_network_newsfeed/models/user/user.dart';
+import 'package:social_network_newsfeed/modules/common_widget/widgets/avatar/common_widgets.dart';
+import 'package:social_network_newsfeed/modules/messages/widgets/messages_widget.dart';
 import 'package:social_network_newsfeed/themes/app_colors.dart';
+import 'package:social_network_newsfeed/themes/app_styles.dart';
 
 class MessagePage extends StatefulWidget {
   const MessagePage({Key? key}) : super(key: key);
@@ -12,12 +15,31 @@ class MessagePage extends StatefulWidget {
 }
 
 class _MessagePageState extends State<MessagePage> {
+  late Future<Users> users;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    users = readJsonFromAssetUsers();
+    // users = readJsonFromAssetUsers();
+  }
+
   @override
   Widget build(BuildContext context) {
+    // final test = data.;
     return Scaffold(
       backgroundColor: AppColors.dark,
       appBar: AppBar(
-        title: const Text('Message'),
+        backgroundColor: AppColors.dark,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {},
+          ),
+          // add more IconButton
+        ],
+        // title: const Text('Message'),
         leading: InkWell(
           onTap: () {
             Navigator.pop(context);
@@ -25,24 +47,83 @@ class _MessagePageState extends State<MessagePage> {
           child: const Icon(Icons.arrow_back),
         ),
       ),
-      body: const ElevatedButton(
-        child: Text('hello'),
-        onPressed: _readJsonFromAsset,
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 15, top: 15, bottom: 24),
+                child: Text(
+                  'Messages',
+                  textAlign: TextAlign.start,
+                  style: AppTextStyles.largeTitle,
+                ),
+              ),
+            ],
+          ),
+          const Divider(
+            height: 1,
+            color: AppColors.black,
+            // thickness: 0.5,
+          ),
+          FutureBuilder(
+            future: Future.wait([users]),
+            builder:
+                (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
+              if (snapshot.hasData) {
+                final dataUsers = snapshot.data![0];
+                // return AvatarWithNameAndActiveStatus(
+                //   picture: data![0][0].picture.large,
+                //   nameOfUser: data[0][0].name,
+                // );
+                return Container(
+                  margin: const EdgeInsets.symmetric(vertical: 16),
+                  child: HorizontalListActiveUser(dataUsers: dataUsers),
+                );
+              } else if (snapshot.hasError) {
+                return Text('${snapshot.error}');
+              }
+              return const CircularProgressIndicator();
+            },
+          ),
+          const Divider(
+            height: 1,
+            color: AppColors.black,
+            // thickness: 0.5,
+          ),
+          FutureBuilder(
+            future: Future.wait([users]),
+            builder:
+                (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
+              if (snapshot.hasData) {
+                final dataUsers = snapshot.data![0];
+                // return AvatarWithNameAndActiveStatus(
+                //   picture: data![0][0].picture.large,
+                //   nameOfUser: data[0][0].name,
+                // );
+                return Container(
+                  margin: const EdgeInsets.symmetric(vertical: 16),
+                  child: HorizontalListActiveUser(dataUsers: dataUsers),
+                );
+              } else if (snapshot.hasError) {
+                return Text('${snapshot.error}');
+              }
+              return const CircularProgressIndicator();
+            },
+          ),
+        ],
       ),
     );
   }
 }
 
-Future<void> _readJsonFromAsset() async {
+Future<Users> readJsonFromAssetUsers() async {
   const assetKey = 'assets/data/mock/users.json';
   final json = await rootBundle.loadString(assetKey);
   final map = jsonDecode(json);
-  // final result = map['results'];
-  // final firstUser = result[0];
-  // final gender = firstUser["gender"];
-  // debugPrint('json: $gender');
-  final results = Results.fromJson(map);
-  final user0 = results.results;
-  final test = user0[0];
-  debugPrint('results: $test');
+
+  final results = Users.fromJson(map);
+  // final users = results.results;
+  return results;
 }
