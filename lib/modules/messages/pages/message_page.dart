@@ -1,7 +1,7 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:social_network_newsfeed/models/chats/chat.dart';
 import 'package:social_network_newsfeed/models/users/user.dart';
+import 'package:social_network_newsfeed/modules/messages/repos/call_api_message.dart';
 import 'package:social_network_newsfeed/modules/messages/widgets/messages_widget.dart';
 import 'package:social_network_newsfeed/themes/app_colors.dart';
 import 'package:social_network_newsfeed/themes/app_styles.dart';
@@ -15,13 +15,14 @@ class MessagePage extends StatefulWidget {
 
 class _MessagePageState extends State<MessagePage> {
   late Future<Users> users;
-
+  late Future<Chats> chats;
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     users = readJsonFromAssetUsers();
-    // users = readJsonFromAssetUsers();
+    chats = readJsonFromAssetChats();
   }
 
   @override
@@ -38,7 +39,6 @@ class _MessagePageState extends State<MessagePage> {
           ),
           // add more IconButton
         ],
-        // title: const Text('Message'),
         leading: InkWell(
           onTap: () {
             Navigator.pop(context);
@@ -92,19 +92,13 @@ class _MessagePageState extends State<MessagePage> {
             // thickness: 0.5,
           ),
           FutureBuilder(
-            future: Future.wait([users]),
+            future: Future.wait([chats]),
             builder:
                 (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
               if (snapshot.hasData) {
-                final dataUsers = snapshot.data![0];
-                // return AvatarWithNameAndActiveStatus(
-                //   picture: data![0][0].picture.large,
-                //   nameOfUser: data[0][0].name,
-                // );
-                return Container(
-                  margin: const EdgeInsets.symmetric(vertical: 16),
-                  child: HorizontalListActiveUser(dataUsers: dataUsers),
-                );
+                final dataChats = snapshot.data![0];
+                return VerticalListUserWithLastMessage(
+                    dataUserWithLastChat: dataChats);
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
               }
@@ -115,14 +109,4 @@ class _MessagePageState extends State<MessagePage> {
       ),
     );
   }
-}
-
-Future<Users> readJsonFromAssetUsers() async {
-  const assetKey = 'assets/data/mock/users.json';
-  final json = await rootBundle.loadString(assetKey);
-  final map = jsonDecode(json);
-
-  final results = Users.fromJson(map);
-  // final users = results.results;
-  return results;
 }

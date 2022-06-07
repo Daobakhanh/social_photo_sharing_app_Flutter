@@ -7,38 +7,22 @@ part of 'chat.dart';
 // **************************************************************************
 
 Chat _$ChatFromJson(Map<String, dynamic> json) => Chat(
-      json['name'] as String,
-      json['email'] as String,
-      $enumDecode(_$GenderEnumMap, json['gender']),
-      DateTime.parse(json['dob'] as String),
-      json['phone'] as String,
-      DateTime.parse(json['registered'] as String),
-      $enumDecode(_$UserStatusEnumMap, json['status']),
-      Picture.fromJson(json['picture'] as Map<String, dynamic>),
+      json['id'] as String,
+      json['text'] as String,
+      User.fromJson(json['user'] as Map<String, dynamic>),
+      json['created_at'] as String,
+      json['reply_count'] as int,
+      json['unread_count'] as int,
     );
 
-Map<String, dynamic> _$ChatToJson(Chat instance) => <String, dynamic>{
-      'gender': _$GenderEnumMap[instance.gender],
-      'name': instance.name,
-      'email': instance.email,
-      'dob': instance.dob.toIso8601String(),
-      'registered': instance.registered.toIso8601String(),
-      'phone': instance.phone,
-      'status': _$UserStatusEnumMap[instance.status],
-      'picture': instance.picture,
-    };
-
-const _$GenderEnumMap = {
-  Gender.male: 'male',
-  Gender.female: 'female',
-  Gender.other: 'other',
-};
-
-const _$UserStatusEnumMap = {
-  UserStatus.offline: 'offline',
-  UserStatus.online: 'online',
-  UserStatus.private: 'private',
-};
+// Map<String, dynamic> _$ChatToJson(Chat instance) => <String, dynamic>{
+//       'id': instance.id,
+//       'text': instance.text,
+//       'user': instance.user,
+//       'reply_count': instance.replyCount,
+//       'unread_count': instance.unreadCount,
+//       'created_at': instance.createdAt,
+//     };
 
 Chats _$ChatsFromJson(Map<String, dynamic> json) => Chats(
       (json['results'] as List<dynamic>)
@@ -46,6 +30,6 @@ Chats _$ChatsFromJson(Map<String, dynamic> json) => Chats(
           .toList(),
     );
 
-Map<String, dynamic> _$ChatsToJson(Chats instance) => <String, dynamic>{
-      'results': instance.results,
-    };
+// Map<String, dynamic> _$ChatsToJson(Chats instance) => <String, dynamic>{
+//       'results': instance.results,
+//     };

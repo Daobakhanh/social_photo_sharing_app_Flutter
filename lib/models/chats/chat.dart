@@ -1,7 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:social_network_newsfeed/common/data_type/gender.dart';
-import 'package:social_network_newsfeed/common/data_type/user_status.dart';
-import 'package:social_network_newsfeed/models/other/picture.dart';
+import 'package:social_network_newsfeed/models/users/user.dart';
 
 /// This allows the `User` class to access private members in
 /// the generated file. The value for this is *.g.dart, where
@@ -12,17 +10,18 @@ part 'chat.g.dart';
 /// JSON serialization logic to be generated.
 @JsonSerializable()
 class Chat {
-  Chat(this.name, this.email, this.gender, this.dob, this.phone,
-      this.registered, this.status, this.picture);
+  Chat(this.id, this.text, this.user, this.createdAt, this.replyCount,
+      this.unreadCount);
 
-  final Gender gender;
-  final String name;
-  final String email;
-  final DateTime dob;
-  final DateTime registered;
-  final String phone;
-  final UserStatus status;
-  final Picture picture;
+  final String id;
+  final String text;
+  final User user;
+  @JsonKey(name: 'reply_count')
+  final int replyCount;
+  @JsonKey(name: 'unread_count')
+  final int unreadCount;
+  @JsonKey(name: 'created_at')
+  final String createdAt;
 
   /// A necessary factory constructor for creating a new User instance
   /// from a map. Pass the map to the generated `_$UserFromJson()` constructor.

@@ -4,25 +4,25 @@ import 'package:social_network_newsfeed/modules/messages/widgets/messages_widget
 // import 'package:social_network_newsfeed/modules/common_widget/widgets/messages/messages_widget.dart';
 
 Map personInfor = {
-  "gender": "male",
-  "name": "Brad Gibson",
-  "email": "brad.gibson@example.com",
-  "dob": "1993-07-20T09:44:18.674Z",
-  "registered": "2002-05-21T10:59:49.966Z",
-  "phone": "011-962-7516",
-  "status": "offline",
-  "messages": {
-    "listOfMessage": [
-      {"message": "hello I'm khanh", "time": "2022-05-21T10:58:46.966Z"},
-      {"message": "Back khoa ha noi", "time": "2022-05-21T10:59:49.966Z"},
-    ],
-    "numOfMessageUnSeen": 1,
+  "id": "582fc99e-a955-446c-9d74-38574a75838b",
+  "text": "People keep telling me \"orange\" but I still prefer \"pink\".",
+  "user": {
+    "gender": "male",
+    "name": "Joseph Gordon",
+    "email": "joseph.gordon@example.com",
+    "dob": "1997-03-04T06:52:36.093Z",
+    "registered": "2006-08-06T20:03:28.582Z",
+    "phone": "061-796-7504",
+    "status": "online",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/24.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/24.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/24.jpg"
+    }
   },
-  "picture": {
-    "large": "https://randomuser.me/api/portraits/men/75.jpg",
-    "medium": "https://randomuser.me/api/portraits/med/men/75.jpg",
-    "thumbnail": "https://randomuser.me/api/portraits/thumb/men/75.jpg"
-  }
+  "reply_count": 75,
+  "unread_count": 2,
+  "created_at": "2021-10-27T08:13:47.646Z"
 };
 
 class CommonWidgetPage extends StatefulWidget {
@@ -58,24 +58,22 @@ class _CommonWidgetPageState extends State<CommonWidgetPage> {
                   width: 100,
                   margin: const EdgeInsets.all(20),
                   child: AvatarWithActiveStatus(
-                      picture: personInfor["picture"]["large"])),
+                      picture: personInfor["user"]["picture"]["large"])),
               Container(
                 margin: const EdgeInsets.all(20),
                 child: AvatarWithNameAndActiveStatus(
-                  picture: personInfor["picture"]["large"],
-                  nameOfUser: personInfor["name"],
+                  picture: personInfor["user"]["picture"]["large"],
+                  nameOfUser: personInfor["user"]["name"],
                 ),
               ),
               Container(
                 margin: const EdgeInsets.all(20),
                 child: AvatarWithMessageCard(
-                  picture: personInfor["picture"]["large"],
-                  nameOfUser: personInfor["name"],
-                  numOfMessageUnseen: personInfor["messages"]
-                      ["numOfMessageUnSeen"],
-                  lastMessage: personInfor["messages"]["listOfMessage"][0]
-                      ["message"],
-                  timeOfLastMessage: "04:37",
+                  picture: personInfor["user"]["picture"]["large"],
+                  nameOfUser: personInfor["user"]["name"],
+                  numOfMessageUnread: personInfor['unread_count'],
+                  lastMessage: personInfor["text"],
+                  timeOfLastMessage: personInfor["created_at"],
                 ),
               ),
             ],
