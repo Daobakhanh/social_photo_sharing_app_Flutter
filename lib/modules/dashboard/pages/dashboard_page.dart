@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_network_newsfeed/common/data_type/list_screen.dart';
+import 'package:social_network_newsfeed/modules/download/pages/download_page.dart';
 
 import '../../common_widget/pages/common_widget_page.dart';
 import '../../messages/pages/message_page.dart';
@@ -20,11 +21,6 @@ class DashBoardPage extends StatelessWidget {
       ),
       body: Container(
           color: Colors.black,
-          // child: ListView.builder(
-          //     itemCount: 4,
-          //     itemBuilder: (context, index) {
-          //       return CardScreen(title: listScreen[index]);
-          //     }),
           child: ListView(
             children: [
               CardScreen(
@@ -42,6 +38,10 @@ class DashBoardPage extends StatelessWidget {
               CardScreen(
                 title: listScreen[3],
                 pageWidget: const MessagePage(),
+              ),
+              CardScreen(
+                title: listScreen[4],
+                pageWidget: const DownloadPage(),
               )
             ],
           )),
