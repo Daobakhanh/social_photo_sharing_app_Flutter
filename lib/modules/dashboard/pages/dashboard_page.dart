@@ -21,11 +21,6 @@ class DashBoardPage extends StatelessWidget {
       ),
       body: Container(
           color: Colors.black,
-          // child: ListView.builder(
-          //     itemCount: 4,
-          //     itemBuilder: (context, index) {
-          //       return CardScreen(title: listScreen[index]);
-          //     }),
           child: ListView(
             children: [
               CardScreen(
