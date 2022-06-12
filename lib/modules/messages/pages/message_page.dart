@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_network_newsfeed/models/chats/chat.dart';
 import 'package:social_network_newsfeed/models/users/user.dart';
-import 'package:social_network_newsfeed/modules/messages/repos/call_api_message.dart';
+import 'package:social_network_newsfeed/modules/messages/repos/message_call_api.dart';
 import 'package:social_network_newsfeed/modules/messages/widgets/messages_widget.dart';
 import 'package:social_network_newsfeed/themes/app_colors.dart';
 import 'package:social_network_newsfeed/themes/app_styles.dart';

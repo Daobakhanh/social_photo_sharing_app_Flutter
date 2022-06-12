@@ -35,6 +35,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   json_annotation: ^4.5.0
   dio: ^4.0.6
+  image_gallery_saver: ^1.7.1
+  overlay_support: ^2.0.1
 
 dev_dependencies:
   flutter_test:
@@ -63,7 +65,7 @@ flutter:
   assets:
     - assets/fonts/
     - assets/fonts/Avenir/
-    - assets/images/
+    # - assets/images/
     - assets/data/
     - assets/data/mock/
 
