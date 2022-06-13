@@ -79,15 +79,15 @@ class _DownloadPageState extends State<DownloadPage>
   }
 }
 
-Future<void> _downloadImage() async {
-  try {
-    const String urlString = 'https://randomuser.me/api/';
-    final res = await Dio().get(urlString);
-    print(res.data);
-  } catch (e) {
-    print(e);
-  }
-}
+// Future<void> _downloadImage() async {
+//   try {
+//     const String urlString = 'https://randomuser.me/api/';
+//     final res = await Dio().get(urlString);
+//     print(res.data);
+//   } catch (e) {
+//     print(e);
+//   }
+// }
 
 mixin DownloadImgMixinStateful<T extends StatefulWidget> on State<T> {
   Future<void> downloadImg(String name, String url) async {
@@ -107,5 +107,28 @@ mixin DownloadImgMixinStateful<T extends StatefulWidget> on State<T> {
       print('e = $e');
       return;
     }
+  }
+}
+
+class hello extends StatelessWidget {
+  const hello({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
+class hello extends StatefulWidget {
+  const hello({Key? key}) : super(key: key);
+
+  @override
+  State<hello> createState() => _helloState();
+}
+
+class _helloState extends State<hello> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
