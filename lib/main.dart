@@ -5,14 +5,13 @@ import 'modules/dashboard/pages/dashboard_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-// void main() async {
-//   // Bloc.observer = ChattyBlocObserver();
-//   // WidgetsFlutterBinding.ensureInitialized(); // Add this
+void main() async {
+  // Bloc.observer = ChattyBlocObserver();
 
-//   // BlocOverrides.runZoned(() async {
-//   //   runApp(const MyApp());
-//   // }, blocObserver: ChattyBlocObserver());
-// }
+  BlocOverrides.runZoned(() async {
+    runApp(const MyApp());
+  }, blocObserver: ChattyBlocObserver());
+}
 
 //config fire
 // void main() async {
