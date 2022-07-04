@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:social_network_newsfeed/modules/common_widget/widgets/avatar/avatar_widgets.dart';
+import 'package:social_network_newsfeed/modules/common_widget/widgets/statefull_widget/avatar_widgets.dart';
+import 'package:social_network_newsfeed/modules/common_widget/widgets/stateless_widget/button_widget/long_button_widget.dart';
 import 'package:social_network_newsfeed/modules/messages/widgets/messages_widget.dart';
+import 'package:social_network_newsfeed/themes/app_colors.dart';
 // import 'package:social_network_newsfeed/modules/common_widget/widgets/messages/messages_widget.dart';
 
 Map personInfor = {
@@ -75,6 +77,13 @@ class _CommonWidgetPageState extends State<CommonWidgetPage> {
                   lastMessage: personInfor["text"],
                   timeOfLastMessage: personInfor["created_at"],
                 ),
+              ),
+              LongButton(
+                onTap: (() {
+                  print('hello');
+                }),
+                nameOfButton: 'Login',
+                color: AppColors.pinkAccent,
               ),
             ],
           )),
