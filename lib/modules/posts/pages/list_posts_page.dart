@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_network_newsfeed/modules/posts/blocs/list_posts_bloc.dart';
-import 'package:social_network_newsfeed/modules/posts/models/post.dart';
 import 'package:social_network_newsfeed/modules/posts/widgets/post_item_widget.dart';
 
 class ListPostsPage extends StatefulWidget {

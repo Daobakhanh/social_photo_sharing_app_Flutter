@@ -17,16 +17,16 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       Picture.fromJson(json['picture'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
-      'gender': _$GenderEnumMap[instance.gender],
-      'name': instance.name,
-      'email': instance.email,
-      'dob': instance.dob.toIso8601String(),
-      'registered': instance.registered.toIso8601String(),
-      'phone': instance.phone,
-      'status': _$UserStatusEnumMap[instance.status],
-      'picture': instance.picture,
-    };
+// Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
+//       'gender': _$GenderEnumMap[instance.gender],
+//       'name': instance.name,
+//       'email': instance.email,
+//       'dob': instance.dob.toIso8601String(),
+//       'registered': instance.registered.toIso8601String(),
+//       'phone': instance.phone,
+//       'status': _$UserStatusEnumMap[instance.status],
+//       'picture': instance.picture,
+//     };
 
 const _$GenderEnumMap = {
   Gender.male: 'male',
@@ -46,6 +46,6 @@ Users _$UsersFromJson(Map<String, dynamic> json) => Users(
           .toList(),
     );
 
-Map<String, dynamic> _$UsersToJson(Users instance) => <String, dynamic>{
-      'results': instance.results,
-    };
+// Map<String, dynamic> _$UsersToJson(Users instance) => <String, dynamic>{
+//       'results': instance.results,
+//     };

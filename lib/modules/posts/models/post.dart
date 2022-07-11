@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:social_network_newsfeed/modules/posts/models/picture.dart';
 

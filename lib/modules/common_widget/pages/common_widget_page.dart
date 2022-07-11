@@ -80,7 +80,7 @@ class _CommonWidgetPageState extends State<CommonWidgetPage> {
               ),
               LongButton(
                 onTap: (() {
-                  print('hello');
+                  debugPrint('hello');
                 }),
                 nameOfButton: 'Login',
                 color: AppColors.pinkAccent,

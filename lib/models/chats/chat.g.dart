@@ -15,14 +15,14 @@ Chat _$ChatFromJson(Map<String, dynamic> json) => Chat(
       json['unread_count'] as int,
     );
 
-Map<String, dynamic> _$ChatToJson(Chat instance) => <String, dynamic>{
-      'id': instance.id,
-      'text': instance.text,
-      'user': instance.user,
-      'reply_count': instance.replyCount,
-      'unread_count': instance.unreadCount,
-      'created_at': instance.createdAt,
-    };
+// Map<String, dynamic> _$ChatToJson(Chat instance) => <String, dynamic>{
+//       'id': instance.id,
+//       'text': instance.text,
+//       'user': instance.user,
+//       'reply_count': instance.replyCount,
+//       'unread_count': instance.unreadCount,
+//       'created_at': instance.createdAt,
+//     };
 
 Chats _$ChatsFromJson(Map<String, dynamic> json) => Chats(
       (json['results'] as List<dynamic>)
@@ -30,6 +30,6 @@ Chats _$ChatsFromJson(Map<String, dynamic> json) => Chats(
           .toList(),
     );
 
-Map<String, dynamic> _$ChatsToJson(Chats instance) => <String, dynamic>{
-      'results': instance.results,
-    };
+// Map<String, dynamic> _$ChatsToJson(Chats instance) => <String, dynamic>{
+//       'results': instance.results,
+//     };
